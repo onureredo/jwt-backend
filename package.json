@@ -1,0 +1,28 @@
+{
+  "name": "lecon",
+  "version": "1.0.0",
+  "description": "Social Media App",
+  "main": "server.js",
+  "scripts": {
+    "dev": "node -r dotenv/config --watch server.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/onureredo/leCon.git"
+  },
+  "author": "onureredo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/onureredo/leCon/issues"
+  },
+  "homepage": "https://github.com/onureredo/leCon#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "joi": "^17.9.2",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^7.2.2"
+  }
+}
