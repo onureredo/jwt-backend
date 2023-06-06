@@ -1,7 +1,7 @@
 {
-  "name": "lecon",
+  "name": "jwt-backend",
   "version": "1.0.0",
-  "description": "Social Media App",
+  "description": "",
   "main": "server.js",
   "type": "module",
   "scripts": {
@@ -9,16 +9,6 @@
     "start": "node -r dotenv/config server.js",
     "devGo": "nodemon -r dotenv/config server.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/onureredo/leCon.git"
-  },
-  "author": "onureredo",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/onureredo/leCon/issues"
-  },
-  "homepage": "https://github.com/onureredo/leCon#readme",
   "dependencies": {
     "bcrypt": "^5.1.0",
     "cors": "^2.8.5",
