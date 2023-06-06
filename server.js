@@ -7,13 +7,12 @@ import errorHandler from './middlewares/errorHandler.js';
 const app = express();
 const port = process.env.PORT || 8000;
 
-// Middleware to parse incomming requests as JSON
-app.use(cors({ origin: '*' }));
-app.use(express.json());
+app.use(cors({ origin: '*' })); // Enable Cross-Origin Resource Sharing (CORS)
+app.use(express.json()); // Parse incoming requests with JSON payloads
 
-app.use('/auth', authRouter);
-app.use('*', (req, res) => res.sendStatus(404));
-app.use(errorHandler);
+app.use('/auth', authRouter); // Authentication routes
+app.use('*', (req, res) => res.sendStatus(404)); // Handle undefined routes with a 404 status
+app.use(errorHandler); // Handle errors using the errorHandler middleware
 
 // Server start
 app.listen(port, () => {
