@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "dev": "node -r dotenv/config --watch server.js",
-    "start": "node server.js"
+    "start": "node -r dotenv/config server.js",
+    "devGo": "nodemon -r dotenv/config server.js"
   },
   "repository": {
     "type": "git",
@@ -26,5 +27,8 @@
     "joi": "^17.9.2",
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^7.2.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
   }
 }
