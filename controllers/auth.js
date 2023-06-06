@@ -50,7 +50,7 @@ export const signIn = asyncHandler(async (req, res, next) => {
 */
 
   const { email, password } = req.body;
-  const existingUser = await User.findOne({ email });
+  const existingUser = await User.findOne({ email }).select('+password');
 
   if (!existingUser) throw new ErrorResponse('User does not exist.', 404);
 
