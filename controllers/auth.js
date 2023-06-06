@@ -1,8 +1,8 @@
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
-import User from '../models/User';
-import asyncHandler from '../utils/asyncHandler';
-import ErrorResponse from '../utils/ErrorResponse';
+import User from '../models/User.js';
+import asyncHandler from '../utils/asyncHandler.js';
+import ErrorResponse from '../utils/ErrorResponse.js';
 
 // Register
 export const signUp = asyncHandler(async (req, res, next) => {
