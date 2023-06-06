@@ -17,7 +17,7 @@ export const signUp = asyncHandler(async (req, res, next) => {
       Return JWT [x]
 */
 
-  const { firstName, lastName, email, password } = req.body;
+  const { firstName, lastName, username, email, password } = req.body;
 
   const existingUser = await User.findOne({ email });
   if (existingUser)
@@ -26,6 +26,7 @@ export const signUp = asyncHandler(async (req, res, next) => {
   const newUser = await User.create({
     firstName,
     lastName,
+    username,
     email,
     password: hash,
   });
@@ -48,8 +49,8 @@ export const signIn = asyncHandler(async (req, res, next) => {
 
   const { email, password } = req.body;
   const existingUser = await User.findOne({ email });
-  if (!user) throw new ErrorResponse('User does not exist.', 404);
-  const matchPassword = await bcrypt.compare(password, user.password);
+  if (!existingUser) throw new ErrorResponse('User does not exist.', 404);
+  const matchPassword = await bcrypt.compare(password, existingUser.password);
   if (!matchPassword) throw new ErrorResponse('Password is incorrect', 401);
   const token = jwt.sign({ uid: existingUser._id }, process.env.JWT_SECRET);
   res.status(200).send({ token });
